@@ -1,5 +1,6 @@
 package com.anthodev;
 
+import com.anthodev.view.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,14 +11,8 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        final Parent parent =
-                FXMLLoader.load(this.getClass().getResource("/view/login-window.fxml"));
-
-        final Scene scene = new Scene(parent);
-
-        stage.setTitle("Basic button");
-        stage.setScene(scene);
-        stage.show();
+        final ViewFactory viewFactory = new ViewFactory(new EmailManager());
+        viewFactory.showLoginWindow();
     }
 
     public static void main(String[] args) {

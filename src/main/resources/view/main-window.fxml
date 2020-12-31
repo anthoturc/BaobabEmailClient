@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="467.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anthodev.controller.MainWindowController">
+    <MenuBar layoutX="1.0" layoutY="-1.0" prefHeight="29.0" prefWidth="672.0" AnchorPane.leftAnchor="0.0"
+             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Close"/>
+            <MenuItem mnemonicParsing="false" text="Open"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" onAction="#optionsPressed" text="Options"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About"/>
+        </Menu>
+    </MenuBar>
+    <TreeView fx:id="emailTreeView" layoutY="27.0" prefHeight="440.0" prefWidth="149.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="27.0"/>
+    <TableView fx:id="emailTableView" editable="true" layoutX="148.0" layoutY="27.0" prefHeight="176.0"
+               prefWidth="526.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+        <columns>
+            <TableColumn prefWidth="75.0" text="Sender"/>
+            <TableColumn prefWidth="141.15135192871094" text="Subject"/>
+            <TableColumn prefWidth="146.34869384765625" text="Recipient"/>
+            <TableColumn prefWidth="84.29537963867188" text="Size"/>
+            <TableColumn prefWidth="79.20458984375" text="Date"/>
+        </columns>
+    </TableView>
+    <WebView layoutX="149.0" layoutY="203.0" prefHeight="264.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0"
+             AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="203.0"/>
+</AnchorPane>
