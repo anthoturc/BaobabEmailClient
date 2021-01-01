@@ -6,18 +6,22 @@ import com.anthodev.view.ViewFactory;
 
 public abstract class AbstractBaseController {
 
-    private final EmailManager emailManager;
-    private final ViewFactory viewFactory;
-    private final String currentFXMLView;
+    private static final String VIEW_PREFIX = "/view/";
+
+    protected final EmailManager emailManager;
+    protected final ViewFactory viewFactory;
+    private final String fxmlName;
 
     public AbstractBaseController(final EmailManager emailManager,
                                   final ViewFactory viewFactory,
-                                  final String currentFXMLView) {
-
+                                  final String fxmlName) {
         this.emailManager = emailManager;
         this.viewFactory = viewFactory;
-        this.currentFXMLView = currentFXMLView;
+        this.fxmlName = fxmlName;
 
     }
 
+    public String getFxmlName() {
+        return VIEW_PREFIX + fxmlName;
+    }
 }

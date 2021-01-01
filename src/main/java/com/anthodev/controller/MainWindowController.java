@@ -22,7 +22,7 @@ public class MainWindowController extends AbstractBaseController {
 
     @FXML
     void optionsPressed() {
-
+        viewFactory.setupOptionsWindow();
     }
 
 }
