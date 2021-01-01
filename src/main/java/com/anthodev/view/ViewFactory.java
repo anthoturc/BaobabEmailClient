@@ -9,12 +9,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewFactory {
 
     private final EmailManager emailManager;
+    private static final List<Stage> activeStages = new ArrayList<>();
 
     // View related options
     private Theme theme = Theme.DEFAULT;
@@ -50,6 +54,7 @@ public class ViewFactory {
 
     public void tearDownStage(final Stage stage) {
         stage.close();
+        activeStages.remove(stage);
     }
 
     public FontSize getFontSize() {
@@ -84,9 +89,22 @@ public class ViewFactory {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+
+        // Place active stage into active stages list so that we can apply
+        // style changes to all active stages
+        activeStages.add(stage);
     }
 
     public void updateStyles() {
+        activeStages.stream()
+            .map(Window::getScene)
+            .forEach(scene -> {
+                scene.getStylesheets().clear();
+                scene.getStylesheets().addAll(
+                    getClass().getResource(theme.getThemePath()).toExternalForm(),
+                    getClass().getResource(fontSize.getFontSizePath()).toExternalForm()
+                );
+            });
     }
 
 }
