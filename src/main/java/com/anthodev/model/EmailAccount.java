@@ -2,7 +2,6 @@ package com.anthodev.model;
 
 import org.immutables.value.Value;
 
-import javax.mail.Store;
 import java.util.Properties;
 
 @Value.Immutable
@@ -33,10 +32,4 @@ public interface EmailAccount {
 
         return properties;
     }
-
-    /**
-     * Used for sending and retrieving messages.
-     *
-     */
-    Store store();
 }
