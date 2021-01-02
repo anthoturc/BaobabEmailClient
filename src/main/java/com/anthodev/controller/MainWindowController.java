@@ -3,13 +3,17 @@ package com.anthodev.controller;
 import com.anthodev.EmailManager;
 import com.anthodev.view.ViewFactory;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 
-public class MainWindowController extends AbstractBaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainWindowController extends AbstractBaseController implements Initializable {
 
     @FXML
-    private TreeView<?> emailTreeView;
+    private TreeView<String> emailTreeView;
 
     @FXML
     private TableView<?> emailTableView;
@@ -24,5 +28,17 @@ public class MainWindowController extends AbstractBaseController {
     void optionsPressed() {
         viewFactory.setupOptionsWindow();
     }
+
+    @Override
+    public void initialize(final URL url, final ResourceBundle resourceBundle) {
+        setupEmailFolderTreeView();
+    }
+
+    private void setupEmailFolderTreeView() {
+
+        emailTreeView.setRoot(emailManager.getRootFolder());
+        emailTreeView.setShowRoot(false);
+    }
+
 
 }

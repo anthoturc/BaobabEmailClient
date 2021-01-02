@@ -56,6 +56,7 @@ public class LoginService extends Service<LoginResult> {
                     emailAccount.emailAddress(),
                     emailAccount.password()
             );
+            emailManager.addEmailAccount(emailAccount, store);
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
             return FAILED_BY_NETWORK;

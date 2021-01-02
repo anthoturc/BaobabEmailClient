@@ -44,8 +44,8 @@ public class LoginWindowController extends AbstractBaseController implements Ini
 
     @Override
     public void initialize(final URL url, final ResourceBundle resourceBundle) {
-        emailAddressTextField.setText("email@email.com");
-        passwordTextField.setText("1234");
+        emailAddressTextField.setText("baobab.email.tester@gmail.com");
+        passwordTextField.setText("Spring2020");
     }
 
     private void attemptEmailLogin() {
